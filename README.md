@@ -52,15 +52,18 @@ Mindawaker/
 
 Install Python compatible with `requirements.txt`, Node.js with npm, and FFmpeg/ffprobe. Use an isolated Python environment. External generation services require their own credentials; SceneStudio's local LTX generation additionally requires a separately configured model runtime and GPU.
 
-Run backend commands from the Mindawaker directory:
+Install Miniconda or Anaconda first. From the Mindawaker directory, create and activate a dedicated environment before installing dependencies:
 
 ```bash
-python -m venv .venv
-# Linux/macOS:
-source .venv/bin/activate
-# Windows PowerShell instead:
-# .\.venv\Scripts\Activate.ps1
+conda create -n mindawaker python=3.11 pip -y
+conda activate mindawaker
+```
 
+Create the environment only once. In a new terminal, run `conda activate mindawaker` before running backend commands.
+
+Install backend dependencies in the activated environment:
+
+```bash
 python -m pip install -r requirements.txt
 ```
 
@@ -149,6 +152,3 @@ npm run build
 Provider errors should be checked in the task status and backend logs. A missing credential message names the required backend variable. If browser requests fail before a task starts, check the API proxy, backend port, and CORS configuration.
 
 Structured prompts help carry character and scene information across shots, but visual consistency still depends on model output and review. Media generation requires the selected external services to be reachable. The retired video-retrieval and standalone 3D GUIDED modules are not part of the current application.
-#   M i n d A w a k e r  
- #   M i n d A w a k e r  
- 

@@ -1,0 +1,1 @@
+2026-04-29 00:34:13 | ERROR    | app.service.pipeline_manager | pipeline_manager.py:784 | [ffmpeg] failed returncode=255 elapsed=6.55s stderr=

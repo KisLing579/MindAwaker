@@ -1,0 +1,73 @@
+2026-04-24 07:36:27 | ERROR    | asyncio | base_events.py:1886 | Task exception was never retrieved
+future: <Task finished name='Task-67' coro=<TaskManager._update_progress() done, defined at E:\ClaudeTest\Mindawaker\app\service\task_manager.py:344> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\base_events.py", line 2057, in _run_once
+    handle._run()
+    ~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\uvicorn\server.py", line 78, in serve
+    with self.capture_signals():
+         ~~~~~~~~~~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\uvicorn\server.py", line 339, in capture_signals
+    signal.raise_signal(captured_signal)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\runners.py", line 166, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\uvicorn\main.py", line 617, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\uvicorn\server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\runners.py", line 203, in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\runners.py", line 63, in __exit__
+    self.close()
+    ~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\runners.py", line 71, in close
+    _cancel_all_tasks(loop)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\runners.py", line 215, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\base_events.py", line 2057, in _run_once
+    handle._run()
+    ~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ClaudeTest\Mindawaker\app\service\task_manager.py", line 364, in _update_progress
+    self.db.save_task(task)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\ClaudeTest\Mindawaker\app\service\task_manager.py", line 87, in save_task
+    with sqlite3.connect(self.db_path) as conn:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyboardInterrupt

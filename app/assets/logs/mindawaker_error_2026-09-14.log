@@ -1,0 +1,70 @@
+2026-09-14 13:24:12 | ERROR    | app.service.task_manager | task_manager.py:236 | Task 056160e9-6ec0-4af8-8f94-3c781c52fb18: Failed with error: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+2026-09-14 13:24:12 | ERROR    | app.service.task_manager | task_manager.py:238 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 82, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 213, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 38, in restore_source_ranges
+    raise ValueError(f"第 {index} 项缺少整数 source_start/source_end")
+ValueError: 第 1 项缺少整数 source_start/source_end
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 214, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 307, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 300, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 214, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 222, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 94, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+
+2026-09-14 13:24:47 | ERROR    | app.service.task_manager | task_manager.py:236 | Task 66041c8b-e9a0-4373-8e2b-9162e140cec8: Failed with error: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+2026-09-14 13:24:47 | ERROR    | app.service.task_manager | task_manager.py:238 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 82, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 213, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 38, in restore_source_ranges
+    raise ValueError(f"第 {index} 项缺少整数 source_start/source_end")
+ValueError: 第 1 项缺少整数 source_start/source_end
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 214, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 307, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 300, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 214, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 222, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 94, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+

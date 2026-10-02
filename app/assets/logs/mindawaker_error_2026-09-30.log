@@ -1,0 +1,273 @@
+2026-09-30 12:52:30 | ERROR    | app.service.task_manager | task_manager.py:283 | Task b365433b-45f7-46ba-9da8-f46483622c79: Failed with error: name 'torch' is not defined
+2026-09-30 12:52:30 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 244, in run_stage
+    pipeline.release_model()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\service\base_pipeline.py", line 34, in release_model
+    self.generator.unload_model()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\langchain_pipeline\base_text.py", line 73, in unload_model
+    torch.cuda.empty_cache()
+    ^^^^^
+NameError: name 'torch' is not defined
+
+2026-09-30 13:02:14 | ERROR    | app.service.task_manager | task_manager.py:283 | Task cf179bfb-1919-4c00-be8a-a0ae4eb45c77: Failed with error: name 'torch' is not defined
+2026-09-30 13:02:14 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 219, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 40, in restore_source_ranges
+    raise ValueError(f"第 {index} 项原文范围无效：应从 {cursor} 开始，实际 {start}–{end}，总片段数 {len(units)}")
+ValueError: 第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 244, in run_stage
+    pipeline.release_model()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\service\base_pipeline.py", line 34, in release_model
+    self.generator.unload_model()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\langchain_pipeline\base_text.py", line 73, in unload_model
+    torch.cuda.empty_cache()
+    ^^^^^
+NameError: name 'torch' is not defined
+
+2026-09-30 13:05:54 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 74c0a2ea-0022-403a-9fe0-25e45a8c2f23: Failed with error: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+2026-09-30 13:05:54 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 219, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 38, in restore_source_ranges
+    raise ValueError(f"第 {index} 项缺少整数 source_start/source_end")
+ValueError: 第 1 项缺少整数 source_start/source_end
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+
+2026-09-30 13:07:32 | ERROR    | app.service.task_manager | task_manager.py:283 | Task dbd90f3d-98ce-4f4f-9299-e2a7511f2f6b: Failed with error: 故事解析输出校验失败：第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+2026-09-30 13:07:32 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 219, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 40, in restore_source_ranges
+    raise ValueError(f"第 {index} 项原文范围无效：应从 {cursor} 开始，实际 {start}–{end}，总片段数 {len(units)}")
+ValueError: 第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+2026-09-30 13:09:35 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 7bf6270d-f093-41a5-a3fb-ac7d0202fc7a: Failed with error: 故事解析输出校验失败：场景引用了未知角色
+2026-09-30 13:09:35 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 226, in validate
+    raise ValueError("场景引用了未知角色")
+ValueError: 场景引用了未知角色
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色
+
+2026-09-30 13:10:02 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 16afb3e5-2e06-44c9-b461-7ded2802189b: Failed with error: 故事解析输出校验失败：场景引用了未知角色
+2026-09-30 13:10:02 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 226, in validate
+    raise ValueError("场景引用了未知角色")
+ValueError: 场景引用了未知角色
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色
+
+2026-09-30 13:20:31 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 0a7a6dfe-734f-4e00-a7a5-863c36100f59: Failed with error: 故事解析输出校验失败：场景引用了未知角色
+2026-09-30 13:20:31 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 226, in validate
+    raise ValueError("场景引用了未知角色")
+ValueError: 场景引用了未知角色
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色
+
+2026-09-30 13:31:20 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 9c19f57d-9aa1-409f-9bb2-ad696fa3bac4: Failed with error: 故事解析输出校验失败：场景引用了未知角色（故事块 1，场景 1）：scene_visual_overrides=["set_dressing"]；本块允许的角色 ID=["chunk1_person_1", "chunk1_person_2", "chunk1_person_3", "chunk2_person_1", "chunk2_person_2", "chunk5_person_1", "chunk6_person_1"]
+2026-09-30 13:31:20 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 237, in validate
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: 场景引用了未知角色（故事块 1，场景 1）：scene_visual_overrides=["set_dressing"]；本块允许的角色 ID=["chunk1_person_1", "chunk1_person_2", "chunk1_person_3", "chunk2_person_1", "chunk2_person_2", "chunk5_person_1", "chunk6_person_1"]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 243, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色（故事块 1，场景 1）：scene_visual_overrides=["set_dressing"]；本块允许的角色 ID=["chunk1_person_1", "chunk1_person_2", "chunk1_person_3", "chunk2_person_1", "chunk2_person_2", "chunk5_person_1", "chunk6_person_1"]
+

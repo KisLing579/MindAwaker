@@ -1,0 +1,128 @@
+2026-09-16 15:24:39 | ERROR    | app.service.task_manager | task_manager.py:244 | Task 2fb488aa-63f0-43a6-9597-20d66d9279d7: Failed with error: b'{"code":50400,"data":null,"message":"Access Denied: Access Denied","request_id":"20260916152436A2DF48BF3071F89DAD98","status":50400,"time_elapsed":"143.248\xc2\xb5s"}'
+2026-09-16 15:24:40 | ERROR    | app.service.task_manager | task_manager.py:246 | Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 251, in cv_sync2async_submit_task
+    res_json = self.common_json_handler("CVSync2AsyncSubmitTask", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50400,"data":null,"message":"Access Denied: Access Denied","request_id":"20260916152436A2DF48BF3071F89DAD98","status":50400,"time_elapsed":"143.248\xc2\xb5s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 216, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 255, in run_stage
+    manager._rebuild_dirty_clips(project_id, shot_index=index)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 852, in _rebuild_dirty_clips
+    rendered_path = render_clip(self, project_id, index, clip, clip_path)
+  File "E:\16.文生图\Mindawaker\app\service\jimeng_video.py", line 148, in render_clip
+    video = engine.generate(first_frame, prompt, frames, directory, cancel)
+  File "E:\16.文生图\Mindawaker\app\service\jimeng_video.py", line 85, in generate
+    data = checked_data(self.service.cv_sync2async_submit_task({
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        "req_key": REQ_KEY, "binary_data_base64": [base64.b64encode(raw).decode()],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "prompt": prompt, "frames": frames, "seed": -1,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }))
+    ^^
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 254, in cv_sync2async_submit_task
+    raise Exception(str(e))
+Exception: b'{"code":50400,"data":null,"message":"Access Denied: Access Denied","request_id":"20260916152436A2DF48BF3071F89DAD98","status":50400,"time_elapsed":"143.248\xc2\xb5s"}'
+
+2026-09-16 15:47:19 | ERROR    | app.service.task_manager | task_manager.py:244 | Task 9b57f5c1-fd92-4cbe-83b3-d754a8ea28e9: Failed with error: HTTPSConnectionPool(host='v11-aiop.aigc-cloud.com', port=443): Read timed out.
+2026-09-16 15:47:20 | ERROR    | app.service.task_manager | task_manager.py:246 | Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\urllib3\response.py", line 903, in _error_catcher
+    yield
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\urllib3\response.py", line 1028, in _raw_read
+    data = self._fp_read(amt, read1=read1) if not fp_closed else b""
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\urllib3\response.py", line 1011, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+           ~~~~~~~~~~~~~^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\http\client.py", line 484, in read
+    s = self.fp.read(amt)
+  File "F:\anaconda3\envs\mindawaker\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\requests\models.py", line 822, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\urllib3\response.py", line 1257, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\urllib3\response.py", line 1112, in read
+    data = self._raw_read(amt)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\urllib3\response.py", line 1027, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "F:\anaconda3\envs\mindawaker\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\urllib3\response.py", line 908, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.") from e  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='v11-aiop.aigc-cloud.com', port=443): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 216, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 255, in run_stage
+    manager._rebuild_dirty_clips(project_id, shot_index=index)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 852, in _rebuild_dirty_clips
+    rendered_path = render_clip(self, project_id, index, clip, clip_path)
+  File "E:\16.文生图\Mindawaker\app\service\jimeng_video.py", line 148, in render_clip
+    video = engine.generate(first_frame, prompt, frames, directory, cancel)
+  File "E:\16.文生图\Mindawaker\app\service\jimeng_video.py", line 106, in generate
+    for chunk in response.iter_content(1024 * 1024):
+                 ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\requests\models.py", line 828, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='v11-aiop.aigc-cloud.com', port=443): Read timed out.
+

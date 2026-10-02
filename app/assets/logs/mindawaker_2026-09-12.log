@@ -1,0 +1,22 @@
+2026-09-12 23:31:25 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-12 23:31:25 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-12 23:31:25 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-12 23:31:25 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-12 23:31:25 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-12 23:31:25 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-12 23:31:29 | INFO     | app.main | main.py:43 | 🚀 Mindawaker 服务启动中...
+2026-09-12 23:31:29 | INFO     | app.main | main.py:44 | 版本: 0.2.0
+2026-09-12 23:31:29 | INFO     | app.main | main.py:45 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-12 23:40:29 | INFO     | app.service.task_manager | task_manager.py:209 | Task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: Starting execution
+2026-09-12 23:40:29 | INFO     | app.service.content_service | content_service.py:102 | Generating text content with model: deepseek
+2026-09-12 23:40:30 | INFO     | app.router.video_router | video_router.py:248 | WebSocket connected for task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c, current status: TaskStatus.RUNNING
+2026-09-12 23:40:30 | INFO     | app.service.task_manager | task_manager.py:304 | subscribe_progress: Initial status for task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: TaskStatus.RUNNING, progress: 0
+2026-09-12 23:40:30 | INFO     | app.router.video_router | video_router.py:253 | Sending progress update for task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: status=TaskStatus.RUNNING, progress=0
+2026-09-12 23:40:31 | INFO     | app.service.task_manager | task_manager.py:313 | subscribe_progress: Got update for task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: status=TaskStatus.RUNNING, progress=50
+2026-09-12 23:40:31 | INFO     | app.router.video_router | video_router.py:253 | Sending progress update for task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: status=TaskStatus.RUNNING, progress=50
+2026-09-12 23:40:31 | INFO     | app.service.task_manager | task_manager.py:226 | Task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: Reported error result
+2026-09-12 23:40:32 | INFO     | app.service.task_manager | task_manager.py:242 | Task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: Cleaning up
+2026-09-12 23:40:32 | INFO     | app.service.task_manager | task_manager.py:313 | subscribe_progress: Got update for task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: status=TaskStatus.ERROR, progress=50
+2026-09-12 23:40:32 | INFO     | app.router.video_router | video_router.py:253 | Sending progress update for task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c: status=TaskStatus.ERROR, progress=50
+2026-09-12 23:40:32 | INFO     | app.router.video_router | video_router.py:262 | Task 59a4fd9c-d65c-4f80-a82e-c954a8b8ca4c reached terminal state TaskStatus.ERROR, closing WebSocket
+2026-09-13 00:07:03 | INFO     | app.main | main.py:47 | 👋 Mindawaker 服务关闭

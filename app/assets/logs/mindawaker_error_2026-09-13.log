@@ -1,0 +1,555 @@
+2026-09-13 00:25:20 | ERROR    | app.service.pipeline_manager | pipeline_manager.py:710 | [ffmpeg] failed returncode=4294967274 elapsed=2.63s stderr=ffmpeg version N-115218-g3fa98f274a-20240514 Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 13.2.0 (crosstool-NG 1.26.0.65_ecc5e41)
+  configuration: --prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-gpl --enable-version3 --disable-debug --disable-w32threads --enable-pthreads --enable-iconv --enable-libxml2 --enable-zlib --enable-libfreetype --enable-libfribidi --enable-gmp --enable-fontconfig --enable-libharfbuzz --enable-libvorbis --enable-opencl --disable-libpulse --enable-libvmaf --disable-libxcb --disable-xlib --enable-amf --enable-libaom --enable-libaribb24 --enable-avisynth --enable-chromaprint --enable-libdav1d --enable-libdavs2 --enable-libdvdread --enable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --enable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-lv2 --enable-libvpl --enable-openal --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --enable-librubberband --enable-schannel --enable-sdl2 --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --enable-libvidstab --enable-vulkan --enable-libshaderc --enable-libplacebo --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20240514
+  libavutil      59. 17.100 / 59. 17.100
+  libavcodec     61.  5.103 / 61.  5.103
+  libavformat    61.  3.103 / 61.  3.103
+  libavdevice    61.  2.100 / 61.  2.100
+  libavfilter    10.  2.101 / 10.  2.101
+  libswscale      8.  2.100 /  8.  2.100
+  libswresample   5.  2.100 /  5.  2.100
+  libpostproc    58.  2.100 / 58.  2.100
+Input #0, png_pipe, from 'app\assets\projects\b9f8455d-57c1-494a-aeb5-43121abd831b\jimeng_img_1789230308022_0.png':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Video: png, rgb24(pc, gbr/unknown/unknown), 1024x1024, 30 fps, 30 tbr, 30 tbn
+[in#1 @ 000001519fe50680] Error opening input: Invalid argument
+Error opening input file .
+Error opening input files: Invalid argument
+
+2026-09-13 00:35:47 | ERROR    | app.service.pipeline_manager | pipeline_manager.py:710 | [ffmpeg] failed returncode=4294967274 elapsed=0.08s stderr=ffmpeg version N-115218-g3fa98f274a-20240514 Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 13.2.0 (crosstool-NG 1.26.0.65_ecc5e41)
+  configuration: --prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-gpl --enable-version3 --disable-debug --disable-w32threads --enable-pthreads --enable-iconv --enable-libxml2 --enable-zlib --enable-libfreetype --enable-libfribidi --enable-gmp --enable-fontconfig --enable-libharfbuzz --enable-libvorbis --enable-opencl --disable-libpulse --enable-libvmaf --disable-libxcb --disable-xlib --enable-amf --enable-libaom --enable-libaribb24 --enable-avisynth --enable-chromaprint --enable-libdav1d --enable-libdavs2 --enable-libdvdread --enable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --enable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-lv2 --enable-libvpl --enable-openal --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --enable-librubberband --enable-schannel --enable-sdl2 --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --enable-libvidstab --enable-vulkan --enable-libshaderc --enable-libplacebo --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20240514
+  libavutil      59. 17.100 / 59. 17.100
+  libavcodec     61.  5.103 / 61.  5.103
+  libavformat    61.  3.103 / 61.  3.103
+  libavdevice    61.  2.100 / 61.  2.100
+  libavfilter    10.  2.101 / 10.  2.101
+  libswscale      8.  2.100 /  8.  2.100
+  libswresample   5.  2.100 /  5.  2.100
+  libpostproc    58.  2.100 / 58.  2.100
+Input #0, png_pipe, from 'app\assets\projects\5f6ab4cf-f663-40ff-a360-ed192edc4628\jimeng_img_1789230937012_0.png':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Video: png, rgb24(pc, gbr/unknown/unknown), 1024x1024, 30 fps, 30 tbr, 30 tbn
+[in#1 @ 0000028415620300] Error opening input: Invalid argument
+Error opening input file .
+Error opening input files: Invalid argument
+
+2026-09-13 03:01:26 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: '76accd58-e9ed-40b1-8903-e92f9c3f9997'
+2026-09-13 08:48:56 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=53
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130848583557CA166C87CEEF7C80","status":50412,"time_elapsed":"1.888181232s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2118, in gen_image
+    image_config["story_segment"] = dict(image_config["story_segment"], image_prompt=text)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        n=n,
+    
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2174, in gen_image
+    print("正在创建图像……")
+                       ^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130848583557CA166C87CEEF7C80","status":50412,"time_elapsed":"1.888181232s"}'
+2026-09-13 08:49:54 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=53
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130849555B382FCDE3417C0C8393","status":50412,"time_elapsed":"1.994366763s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2118, in gen_image
+    image_config["story_segment"] = dict(image_config["story_segment"], image_prompt=text)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        n=n,
+    
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2174, in gen_image
+    print("正在创建图像……")
+                       ^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130849555B382FCDE3417C0C8393","status":50412,"time_elapsed":"1.994366763s"}'
+2026-09-13 08:50:19 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=53
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130850208F49F432500E0182C864","status":50412,"time_elapsed":"2.061140376s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2118, in gen_image
+    image_config["story_segment"] = dict(image_config["story_segment"], image_prompt=text)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        n=n,
+    
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2174, in gen_image
+    print("正在创建图像……")
+                       ^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130850208F49F432500E0182C864","status":50412,"time_elapsed":"2.061140376s"}'
+2026-09-13 08:51:05 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=53
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130851062C8C47C251655FEEBFD8","status":50412,"time_elapsed":"1.946724289s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2118, in gen_image
+    image_config["story_segment"] = dict(image_config["story_segment"], image_prompt=text)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        n=n,
+    
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2174, in gen_image
+    print("正在创建图像……")
+                       ^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609130851062C8C47C251655FEEBFD8","status":50412,"time_elapsed":"1.946724289s"}'
+2026-09-13 09:08:31 | ERROR    | app.service.pipeline_manager | pipeline_manager.py:718 | [ffmpeg] timeout elapsed=60.03s timeout=60.0s cmd=ffmpeg -f concat -safe 0 -i 'app\assets\projects\8d0cb07f-95a1-448b-a2ac-e75a6d33dd63\video_segments\story\concat_list.txt' -acodec aac -loglevel error -pix_fmt yuv420p -preset ultrafast -r 30 -shortest -vcodec libx264 'app\assets\projects\8d0cb07f-95a1-448b-a2ac-e75a6d33dd63\final_1789261651.mp4' stderr=
+2026-09-13 09:11:19 | ERROR    | app.service.pipeline_manager | pipeline_manager.py:718 | [ffmpeg] timeout elapsed=61.22s timeout=60.0s cmd=ffmpeg -f concat -safe 0 -i 'app\assets\projects\8d0cb07f-95a1-448b-a2ac-e75a6d33dd63\video_segments\story\concat_list.txt' -acodec aac -loglevel error -pix_fmt yuv420p -preset ultrafast -r 30 -shortest -vcodec libx264 'app\assets\projects\8d0cb07f-95a1-448b-a2ac-e75a6d33dd63\final_1789261818.mp4' stderr=
+2026-09-13 12:55:16 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=53
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609131255174D99FEEB3498D2377117","status":50412,"time_elapsed":"1.938990721s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2126, in gen_image
+    image_result = self.render_story_shot(
+        project_id=project_id,
+    ...<4 lines>...
+        n=n,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2182, in gen_image
+    success, image_paths = imageGenerationService.generate(text, pdir, size=size, n=n)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50412,"data":{"algorithm_base_resp":{"status_code":0,"status_message":"Text Risk Not Pass"},"binary_data_base64":[]},"message":"Text Risk Not Pass","request_id":"202609131255174D99FEEB3498D2377117","status":50412,"time_elapsed":"1.938990721s"}'
+2026-09-13 13:34:33 | ERROR    | app.service.pipeline_manager | pipeline_manager.py:711 | [ffmpeg] failed returncode=255 elapsed=14.91s stderr=ffmpeg version N-115218-g3fa98f274a-20240514 Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 13.2.0 (crosstool-NG 1.26.0.65_ecc5e41)
+  configuration: --prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-gpl --enable-version3 --disable-debug --disable-w32threads --enable-pthreads --enable-iconv --enable-libxml2 --enable-zlib --enable-libfreetype --enable-libfribidi --enable-gmp --enable-fontconfig --enable-libharfbuzz --enable-libvorbis --enable-opencl --disable-libpulse --enable-libvmaf --disable-libxcb --disable-xlib --enable-amf --enable-libaom --enable-libaribb24 --enable-avisynth --enable-chromaprint --enable-libdav1d --enable-libdavs2 --enable-libdvdread --enable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --enable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-lv2 --enable-libvpl --enable-openal --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --enable-librubberband --enable-schannel --enable-sdl2 --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --enable-libvidstab --enable-vulkan --enable-libshaderc --enable-libplacebo --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20240514
+  libavutil      59. 17.100 / 59. 17.100
+  libavcodec     61.  5.103 / 61.  5.103
+  libavformat    61.  3.103 / 61.  3.103
+  libavdevice    61.  2.100 / 61.  2.100
+  libavfilter    10.  2.101 / 10.  2.101
+  libswscale      8.  2.100 /  8.  2.100
+  libswresample   5.  2.100 /  5.  2.100
+  libpostproc    58.  2.100 / 58.  2.100
+Input #0, png_pipe, from 'app\assets\projects\42e27583-1dcf-4d92-b480-44e83b877fbc\jimeng_img_1789259649244_0.png':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Video: png, rgb24(pc, gbr/unknown/unknown), 1024x1024, 30 fps, 30 tbr, 30 tbn
+[aist#1:0/pcm_s16le @ 00000246f31bd540] Guessed Channel Layout: mono
+Input #1, wav, from 'app\assets\projects\42e27583-1dcf-4d92-b480-44e83b877fbc\azure_tts_1789259297.wav':
+  Duration: 00:00:09.86, bitrate: 256 kb/s
+  Stream #1:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 16000 Hz, mono, s16, 256 kb/s
+Stream mapping:
+  Stream #0:0 (png) -> pad:default
+  Stream #1:0 (pcm_s16le) -> atrim:default
+  setpts:default -> Stream #0:0 (libx264)
+  asetpts:default -> Stream #0:1 (aac)
+Press [q] to stop, [?] for help
+[libx264 @ 00000246f31cbb00] using SAR=1/1
+[libx264 @ 00000246f31cbb00] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 00000246f31cbb00] profile Constrained Baseline, level 3.2, 4:2:0, 8-bit
+[libx264 @ 00000246f31cbb00] 264 - core 164 - H.264/MPEG-4 AVC codec - Copyleft 2003-2024 - http://www.videolan.org/x264.html - options: cabac=0 ref=1 deblock=0:0:0 analyse=0:0 me=dia subme=0 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=0 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=18 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=250 keyint_min=25 scenecut=0 intra_refresh=0 rc=crf mbtree=0 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=0
+Output #0, mp4, to 'app\assets\projects\42e27583-1dcf-4d92-b480-44e83b877fbc\video_segments\story\clip_0008.mp4':
+  Metadata:
+    encoder         : Lavf61.3.103
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(progressive), 1024x1024 [SAR 1:1 DAR 1:1], q=2-31, 30 fps, 15360 tbn
+      Metadata:
+        encoder         : Lavc61.5.103 libx264
+      Side data:
+        cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 16000 Hz, mono, fltp, 69 kb/s
+      Metadata:
+        encoder         : Lavc61.5.103 aac
+[out#0/mp4 @ 00000246f31948c0] video:181KiB audio:44KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 1.368205%
+frame=  155 fps=0.0 q=-1.0 Lsize=     229KiB time=00:00:05.12 bitrate= 366.4kbits/s speed= 7.6x    
+[libx264 @ 00000246f31cbb00] frame I:1     Avg QP:20.00  size: 79222
+[libx264 @ 00000246f31cbb00] frame P:154   Avg QP:13.22  size:   688
+[libx264 @ 00000246f31cbb00] mb I  I16..4: 100.0%  0.0%  0.0%
+[libx264 @ 00000246f31cbb00] mb P  I16..4:  0.2%  0.0%  0.0%  P16..4:  2.3%  0.0%  0.0%  0.0%  0.0%    skip:97.5%
+[libx264 @ 00000246f31cbb00] coded y,uvDC,uvAC intra: 58.4% 67.7% 39.7% inter: 0.9% 1.2% 0.3%
+[libx264 @ 00000246f31cbb00] i16 v,h,dc,p: 54% 16% 12% 18%
+[libx264 @ 00000246f31cbb00] i8c dc,h,v,p: 40% 15% 33% 12%
+[libx264 @ 00000246f31cbb00] kb/s:286.72
+[aac @ 00000246f5cb2500] Qavg: 40115.082
+Exiting normally, received signal 2.
+
+2026-09-13 15:15:29 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=41
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50500,"data":null,"message":"Internal Error","request_id":"20260913151504587F135AFB0F8A9FC275","status":50500,"time_elapsed":"28.037783446s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2129, in gen_image
+    image_result = self.render_story_shot(
+        project_id=project_id,
+    ...<4 lines>...
+        n=n,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2185, in gen_image
+    success, image_paths = imageGenerationService.generate(text, pdir, size=size, n=n)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50500,"data":null,"message":"Internal Error","request_id":"20260913151504587F135AFB0F8A9FC275","status":50500,"time_elapsed":"28.037783446s"}'
+2026-09-13 15:16:08 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=41
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2129, in gen_image
+    image_result = self.render_story_shot(
+        project_id=project_id,
+    ...<4 lines>...
+        n=n,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2185, in gen_image
+    success, image_paths = imageGenerationService.generate(text, pdir, size=size, n=n)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-09-13 15:32:16 | ERROR    | app.router.image_router | image_router.py:53 | 图像生成失败: project_id=42e27583-1dcf-4d92-b480-44e83b877fbc index=129
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50500,"data":null,"message":"Internal Error","request_id":"202609131531512AFC51E70CCDAE16AAD3","status":50500,"time_elapsed":"28.031591959s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\router\image_router.py", line 31, in generate_image
+    image_result = manager.gen_image(
+        pid,
+    ...<6 lines>...
+        index=index,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2129, in gen_image
+    image_result = self.render_story_shot(
+        project_id=project_id,
+    ...<4 lines>...
+        n=n,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 457, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2185, in gen_image
+    success, image_paths = imageGenerationService.generate(text, pdir, size=size, n=n)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50500,"data":null,"message":"Internal Error","request_id":"202609131531512AFC51E70CCDAE16AAD3","status":50500,"time_elapsed":"28.031591959s"}'

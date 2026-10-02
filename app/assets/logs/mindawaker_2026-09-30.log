@@ -1,0 +1,448 @@
+2026-09-30 12:34:32 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 12:34:32 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 12:34:32 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 12:34:32 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 12:34:32 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 12:34:32 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 12:34:32 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 12:34:32 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 12:34:32 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 12:51:42 | INFO     | app.service.task_manager | task_manager.py:250 | Task b365433b-45f7-46ba-9da8-f46483622c79: Starting execution
+2026-09-30 12:52:30 | ERROR    | app.service.task_manager | task_manager.py:283 | Task b365433b-45f7-46ba-9da8-f46483622c79: Failed with error: name 'torch' is not defined
+2026-09-30 12:52:30 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 244, in run_stage
+    pipeline.release_model()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\service\base_pipeline.py", line 34, in release_model
+    self.generator.unload_model()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\langchain_pipeline\base_text.py", line 73, in unload_model
+    torch.cuda.empty_cache()
+    ^^^^^
+NameError: name 'torch' is not defined
+
+2026-09-30 12:52:31 | INFO     | app.service.task_manager | task_manager.py:289 | Task b365433b-45f7-46ba-9da8-f46483622c79: Cleaning up
+2026-09-30 13:02:00 | INFO     | app.service.task_manager | task_manager.py:250 | Task cf179bfb-1919-4c00-be8a-a0ae4eb45c77: Starting execution
+2026-09-30 13:02:14 | ERROR    | app.service.task_manager | task_manager.py:283 | Task cf179bfb-1919-4c00-be8a-a0ae4eb45c77: Failed with error: name 'torch' is not defined
+2026-09-30 13:02:14 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 219, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 40, in restore_source_ranges
+    raise ValueError(f"第 {index} 项原文范围无效：应从 {cursor} 开始，实际 {start}–{end}，总片段数 {len(units)}")
+ValueError: 第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 244, in run_stage
+    pipeline.release_model()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\service\base_pipeline.py", line 34, in release_model
+    self.generator.unload_model()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\16.文生图\Mindawaker\app\langchain_pipeline\base_text.py", line 73, in unload_model
+    torch.cuda.empty_cache()
+    ^^^^^
+NameError: name 'torch' is not defined
+
+2026-09-30 13:02:14 | INFO     | app.service.task_manager | task_manager.py:289 | Task cf179bfb-1919-4c00-be8a-a0ae4eb45c77: Cleaning up
+2026-09-30 13:04:49 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 13:05:01 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 13:05:01 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 13:05:01 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 13:05:01 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 13:05:01 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 13:05:01 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 13:05:01 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 13:05:01 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 13:05:01 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 13:05:41 | INFO     | app.service.task_manager | task_manager.py:250 | Task 74c0a2ea-0022-403a-9fe0-25e45a8c2f23: Starting execution
+2026-09-30 13:05:54 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 74c0a2ea-0022-403a-9fe0-25e45a8c2f23: Failed with error: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+2026-09-30 13:05:54 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 219, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 38, in restore_source_ranges
+    raise ValueError(f"第 {index} 项缺少整数 source_start/source_end")
+ValueError: 第 1 项缺少整数 source_start/source_end
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项缺少整数 source_start/source_end
+
+2026-09-30 13:05:55 | INFO     | app.service.task_manager | task_manager.py:289 | Task 74c0a2ea-0022-403a-9fe0-25e45a8c2f23: Cleaning up
+2026-09-30 13:07:18 | INFO     | app.service.task_manager | task_manager.py:250 | Task dbd90f3d-98ce-4f4f-9299-e2a7511f2f6b: Starting execution
+2026-09-30 13:07:32 | ERROR    | app.service.task_manager | task_manager.py:283 | Task dbd90f3d-98ce-4f4f-9299-e2a7511f2f6b: Failed with error: 故事解析输出校验失败：第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+2026-09-30 13:07:32 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 219, in validate
+    parsed = [Scene(**entry) for entry in restore_source_ranges(data, units, "scene_text")]
+                                          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_chunks.py", line 40, in restore_source_ranges
+    raise ValueError(f"第 {index} 项原文范围无效：应从 {cursor} 开始，实际 {start}–{end}，总片段数 {len(units)}")
+ValueError: 第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：第 1 项原文范围无效：应从 1 开始，实际 2–8，总片段数 16
+
+2026-09-30 13:07:32 | INFO     | app.service.task_manager | task_manager.py:289 | Task dbd90f3d-98ce-4f4f-9299-e2a7511f2f6b: Cleaning up
+2026-09-30 13:09:23 | INFO     | app.service.task_manager | task_manager.py:250 | Task 7bf6270d-f093-41a5-a3fb-ac7d0202fc7a: Starting execution
+2026-09-30 13:09:35 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 7bf6270d-f093-41a5-a3fb-ac7d0202fc7a: Failed with error: 故事解析输出校验失败：场景引用了未知角色
+2026-09-30 13:09:35 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 226, in validate
+    raise ValueError("场景引用了未知角色")
+ValueError: 场景引用了未知角色
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色
+
+2026-09-30 13:09:36 | INFO     | app.service.task_manager | task_manager.py:289 | Task 7bf6270d-f093-41a5-a3fb-ac7d0202fc7a: Cleaning up
+2026-09-30 13:09:49 | INFO     | app.service.task_manager | task_manager.py:250 | Task 16afb3e5-2e06-44c9-b461-7ded2802189b: Starting execution
+2026-09-30 13:10:02 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 16afb3e5-2e06-44c9-b461-7ded2802189b: Failed with error: 故事解析输出校验失败：场景引用了未知角色
+2026-09-30 13:10:02 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 226, in validate
+    raise ValueError("场景引用了未知角色")
+ValueError: 场景引用了未知角色
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色
+
+2026-09-30 13:10:03 | INFO     | app.service.task_manager | task_manager.py:289 | Task 16afb3e5-2e06-44c9-b461-7ded2802189b: Cleaning up
+2026-09-30 13:10:20 | INFO     | app.service.task_manager | task_manager.py:250 | Task 638bd93e-ebbb-4bfd-9a0d-c50e363fc019: Starting execution
+2026-09-30 13:10:40 | INFO     | app.service.task_manager | task_manager.py:264 | Task 638bd93e-ebbb-4bfd-9a0d-c50e363fc019: Cancelled by user
+2026-09-30 13:10:41 | INFO     | app.service.task_manager | task_manager.py:289 | Task 638bd93e-ebbb-4bfd-9a0d-c50e363fc019: Cleaning up
+2026-09-30 13:12:45 | INFO     | app.service.task_manager | task_manager.py:250 | Task 9a5bfc20-1dbf-478f-8f21-9da30a765009: Starting execution
+2026-09-30 13:13:07 | INFO     | app.service.task_manager | task_manager.py:271 | Task 9a5bfc20-1dbf-478f-8f21-9da30a765009: Completed successfully
+2026-09-30 13:13:07 | INFO     | app.service.task_manager | task_manager.py:289 | Task 9a5bfc20-1dbf-478f-8f21-9da30a765009: Cleaning up
+2026-09-30 13:15:35 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 13:15:45 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 13:15:45 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 13:15:45 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 13:15:45 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 13:15:45 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 13:15:45 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 13:15:45 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 13:15:45 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 13:15:45 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 13:16:02 | INFO     | app.service.task_manager | task_manager.py:250 | Task 41ed0856-57a1-4c65-ae12-890b9d2064e8: Starting execution
+2026-09-30 13:16:39 | INFO     | app.service.task_manager | task_manager.py:271 | Task 41ed0856-57a1-4c65-ae12-890b9d2064e8: Completed successfully
+2026-09-30 13:16:39 | INFO     | app.service.task_manager | task_manager.py:289 | Task 41ed0856-57a1-4c65-ae12-890b9d2064e8: Cleaning up
+2026-09-30 13:20:19 | INFO     | app.service.task_manager | task_manager.py:250 | Task 0a7a6dfe-734f-4e00-a7a5-863c36100f59: Starting execution
+2026-09-30 13:20:31 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 0a7a6dfe-734f-4e00-a7a5-863c36100f59: Failed with error: 故事解析输出校验失败：场景引用了未知角色
+2026-09-30 13:20:31 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 226, in validate
+    raise ValueError("场景引用了未知角色")
+ValueError: 场景引用了未知角色
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 228, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色
+
+2026-09-30 13:20:32 | INFO     | app.service.task_manager | task_manager.py:289 | Task 0a7a6dfe-734f-4e00-a7a5-863c36100f59: Cleaning up
+2026-09-30 13:28:04 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 13:28:18 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 13:28:18 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 13:28:18 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 13:28:18 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 13:28:18 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 13:28:18 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 13:28:18 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 13:28:18 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 13:28:18 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 13:28:27 | INFO     | app.service.task_manager | task_manager.py:250 | Task e0a31f0c-6ff2-4968-be58-ed5a43090b66: Starting execution
+2026-09-30 13:29:04 | INFO     | app.service.task_manager | task_manager.py:271 | Task e0a31f0c-6ff2-4968-be58-ed5a43090b66: Completed successfully
+2026-09-30 13:29:04 | INFO     | app.service.task_manager | task_manager.py:289 | Task e0a31f0c-6ff2-4968-be58-ed5a43090b66: Cleaning up
+2026-09-30 13:31:06 | INFO     | app.service.task_manager | task_manager.py:250 | Task 9c19f57d-9aa1-409f-9bb2-ad696fa3bac4: Starting execution
+2026-09-30 13:31:20 | ERROR    | app.service.task_manager | task_manager.py:283 | Task 9c19f57d-9aa1-409f-9bb2-ad696fa3bac4: Failed with error: 故事解析输出校验失败：场景引用了未知角色（故事块 1，场景 1）：scene_visual_overrides=["set_dressing"]；本块允许的角色 ID=["chunk1_person_1", "chunk1_person_2", "chunk1_person_3", "chunk2_person_1", "chunk2_person_2", "chunk5_person_1", "chunk6_person_1"]
+2026-09-30 13:31:20 | ERROR    | app.service.task_manager | task_manager.py:285 | Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 86, in _json_response
+    validate(data)
+    ~~~~~~~~^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 237, in validate
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: 场景引用了未知角色（故事块 1，场景 1）：scene_visual_overrides=["set_dressing"]；本块允许的角色 ID=["chunk1_person_1", "chunk1_person_2", "chunk1_person_3", "chunk2_person_1", "chunk2_person_2", "chunk5_person_1", "chunk6_person_1"]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 255, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 338, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 331, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 228, in run_stage
+    document["scenes"] = [s.model_dump() for s in pipeline._segment_scenes(document["source_text"], document["items"])]
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 243, in _segment_scenes
+    data = self._json_response(prompt, validate)
+  File "E:\16.文生图\Mindawaker\app\service\story_pipeline.py", line 98, in _json_response
+    raise ValueError(f"故事解析输出校验失败：{exc}") from exc
+ValueError: 故事解析输出校验失败：场景引用了未知角色（故事块 1，场景 1）：scene_visual_overrides=["set_dressing"]；本块允许的角色 ID=["chunk1_person_1", "chunk1_person_2", "chunk1_person_3", "chunk2_person_1", "chunk2_person_2", "chunk5_person_1", "chunk6_person_1"]
+
+2026-09-30 13:31:20 | INFO     | app.service.task_manager | task_manager.py:289 | Task 9c19f57d-9aa1-409f-9bb2-ad696fa3bac4: Cleaning up
+2026-09-30 13:33:34 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 13:33:46 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 13:33:46 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 13:33:46 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 13:33:46 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 13:33:46 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 13:33:46 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 13:33:46 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 13:33:46 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 13:33:46 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 13:33:46 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 13:33:55 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 13:33:55 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 13:33:55 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 13:33:55 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 13:33:55 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 13:33:55 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 13:33:55 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 13:33:55 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 13:33:55 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 13:33:55 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 13:34:04 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 13:34:04 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 13:34:04 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 13:34:04 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 13:34:04 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 13:34:04 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 13:34:04 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 13:34:04 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 13:34:04 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 13:35:39 | INFO     | app.service.task_manager | task_manager.py:250 | Task e8796e8b-367d-4026-99b2-7c85ec3f7731: Starting execution
+2026-09-30 13:36:58 | INFO     | app.service.task_manager | task_manager.py:271 | Task e8796e8b-367d-4026-99b2-7c85ec3f7731: Completed successfully
+2026-09-30 13:36:58 | INFO     | app.service.task_manager | task_manager.py:289 | Task e8796e8b-367d-4026-99b2-7c85ec3f7731: Cleaning up
+2026-09-30 13:42:30 | INFO     | app.service.task_manager | task_manager.py:250 | Task c5854a92-729b-41e2-aa8a-0de463fdfe2b: Starting execution
+2026-09-30 13:44:35 | INFO     | app.service.task_manager | task_manager.py:271 | Task c5854a92-729b-41e2-aa8a-0de463fdfe2b: Completed successfully
+2026-09-30 13:44:35 | INFO     | app.service.task_manager | task_manager.py:289 | Task c5854a92-729b-41e2-aa8a-0de463fdfe2b: Cleaning up
+2026-09-30 13:46:58 | INFO     | app.service.task_manager | task_manager.py:250 | Task 1ceae46e-f6d1-4f27-99c8-d4a923613b08: Starting execution
+2026-09-30 13:47:12 | INFO     | app.service.task_manager | task_manager.py:271 | Task 1ceae46e-f6d1-4f27-99c8-d4a923613b08: Completed successfully
+2026-09-30 13:47:12 | INFO     | app.service.task_manager | task_manager.py:289 | Task 1ceae46e-f6d1-4f27-99c8-d4a923613b08: Cleaning up
+2026-09-30 14:02:30 | INFO     | app.service.task_manager | task_manager.py:250 | Task 2b7365bd-efc9-4257-b1e0-c4872782fa69: Starting execution
+2026-09-30 14:02:42 | INFO     | app.service.task_manager | task_manager.py:271 | Task 2b7365bd-efc9-4257-b1e0-c4872782fa69: Completed successfully
+2026-09-30 14:02:42 | INFO     | app.service.task_manager | task_manager.py:289 | Task 2b7365bd-efc9-4257-b1e0-c4872782fa69: Cleaning up
+2026-09-30 14:03:00 | INFO     | app.service.task_manager | task_manager.py:250 | Task 8fcb2241-05c4-4e19-9710-99cde84c79c7: Starting execution
+2026-09-30 14:03:13 | INFO     | app.service.task_manager | task_manager.py:271 | Task 8fcb2241-05c4-4e19-9710-99cde84c79c7: Completed successfully
+2026-09-30 14:03:13 | INFO     | app.service.task_manager | task_manager.py:289 | Task 8fcb2241-05c4-4e19-9710-99cde84c79c7: Cleaning up
+2026-09-30 14:04:11 | INFO     | app.service.task_manager | task_manager.py:250 | Task 75e85443-5172-4f02-ba30-6b92fca310cf: Starting execution
+2026-09-30 14:04:25 | INFO     | app.service.task_manager | task_manager.py:271 | Task 75e85443-5172-4f02-ba30-6b92fca310cf: Completed successfully
+2026-09-30 14:04:25 | INFO     | app.service.task_manager | task_manager.py:289 | Task 75e85443-5172-4f02-ba30-6b92fca310cf: Cleaning up
+2026-09-30 14:04:54 | INFO     | app.service.task_manager | task_manager.py:250 | Task d7b8df6e-344b-431f-b645-ccb1931c94b0: Starting execution
+2026-09-30 14:05:08 | INFO     | app.service.task_manager | task_manager.py:271 | Task d7b8df6e-344b-431f-b645-ccb1931c94b0: Completed successfully
+2026-09-30 14:05:08 | INFO     | app.service.task_manager | task_manager.py:289 | Task d7b8df6e-344b-431f-b645-ccb1931c94b0: Cleaning up
+2026-09-30 14:05:28 | INFO     | app.service.task_manager | task_manager.py:250 | Task 5ccd7aec-49a9-4ce2-b7f1-17ff1a1cb4ef: Starting execution
+2026-09-30 14:05:41 | INFO     | app.service.task_manager | task_manager.py:271 | Task 5ccd7aec-49a9-4ce2-b7f1-17ff1a1cb4ef: Completed successfully
+2026-09-30 14:05:41 | INFO     | app.service.task_manager | task_manager.py:289 | Task 5ccd7aec-49a9-4ce2-b7f1-17ff1a1cb4ef: Cleaning up
+2026-09-30 14:06:22 | INFO     | app.service.task_manager | task_manager.py:250 | Task 595b554d-cbb1-4ed1-9adb-b5098512dc10: Starting execution
+2026-09-30 14:06:34 | INFO     | app.service.task_manager | task_manager.py:271 | Task 595b554d-cbb1-4ed1-9adb-b5098512dc10: Completed successfully
+2026-09-30 14:06:34 | INFO     | app.service.task_manager | task_manager.py:289 | Task 595b554d-cbb1-4ed1-9adb-b5098512dc10: Cleaning up
+2026-09-30 14:07:04 | INFO     | app.service.task_manager | task_manager.py:250 | Task a7d8130f-b889-467a-9704-7ae8aa99c2dd: Starting execution
+2026-09-30 14:07:18 | INFO     | app.service.task_manager | task_manager.py:271 | Task a7d8130f-b889-467a-9704-7ae8aa99c2dd: Completed successfully
+2026-09-30 14:07:18 | INFO     | app.service.task_manager | task_manager.py:289 | Task a7d8130f-b889-467a-9704-7ae8aa99c2dd: Cleaning up
+2026-09-30 14:08:21 | INFO     | app.service.task_manager | task_manager.py:250 | Task 42f56990-dc38-4804-b8ed-949cc796df13: Starting execution
+2026-09-30 14:08:34 | INFO     | app.service.task_manager | task_manager.py:271 | Task 42f56990-dc38-4804-b8ed-949cc796df13: Completed successfully
+2026-09-30 14:08:35 | INFO     | app.service.task_manager | task_manager.py:289 | Task 42f56990-dc38-4804-b8ed-949cc796df13: Cleaning up
+2026-09-30 14:09:29 | INFO     | app.service.task_manager | task_manager.py:250 | Task 5bf8b23d-86d7-4324-af94-4ab26b0e646a: Starting execution
+2026-09-30 14:09:46 | INFO     | app.service.task_manager | task_manager.py:271 | Task 5bf8b23d-86d7-4324-af94-4ab26b0e646a: Completed successfully
+2026-09-30 14:09:46 | INFO     | app.service.task_manager | task_manager.py:289 | Task 5bf8b23d-86d7-4324-af94-4ab26b0e646a: Cleaning up
+2026-09-30 14:10:45 | INFO     | app.service.task_manager | task_manager.py:250 | Task 22d2e823-74bd-422d-8c7c-69cdd804e013: Starting execution
+2026-09-30 14:11:03 | INFO     | app.service.task_manager | task_manager.py:271 | Task 22d2e823-74bd-422d-8c7c-69cdd804e013: Completed successfully
+2026-09-30 14:11:03 | INFO     | app.service.task_manager | task_manager.py:289 | Task 22d2e823-74bd-422d-8c7c-69cdd804e013: Cleaning up
+2026-09-30 14:11:26 | INFO     | app.service.task_manager | task_manager.py:250 | Task 8244ece6-6a48-4d45-8cc9-d74af0e414e7: Starting execution
+2026-09-30 14:11:40 | INFO     | app.service.task_manager | task_manager.py:271 | Task 8244ece6-6a48-4d45-8cc9-d74af0e414e7: Completed successfully
+2026-09-30 14:11:40 | INFO     | app.service.task_manager | task_manager.py:289 | Task 8244ece6-6a48-4d45-8cc9-d74af0e414e7: Cleaning up
+2026-09-30 14:13:23 | INFO     | app.service.task_manager | task_manager.py:250 | Task bd2e8d68-9b81-4dc1-a2af-a1d65371e2ac: Starting execution
+2026-09-30 14:13:38 | INFO     | app.service.task_manager | task_manager.py:271 | Task bd2e8d68-9b81-4dc1-a2af-a1d65371e2ac: Completed successfully
+2026-09-30 14:13:39 | INFO     | app.service.task_manager | task_manager.py:289 | Task bd2e8d68-9b81-4dc1-a2af-a1d65371e2ac: Cleaning up
+2026-09-30 14:14:57 | INFO     | app.service.task_manager | task_manager.py:250 | Task 97d74083-d1ee-4927-94bc-60c4d60d23ef: Starting execution
+2026-09-30 14:15:13 | INFO     | app.service.task_manager | task_manager.py:271 | Task 97d74083-d1ee-4927-94bc-60c4d60d23ef: Completed successfully
+2026-09-30 14:15:13 | INFO     | app.service.task_manager | task_manager.py:289 | Task 97d74083-d1ee-4927-94bc-60c4d60d23ef: Cleaning up
+2026-09-30 15:10:58 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 15:11:23 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 15:11:23 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 15:11:23 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 15:11:23 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 15:11:23 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 15:11:23 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 15:11:23 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 15:11:23 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 15:11:23 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 15:40:39 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 15:40:48 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 15:40:48 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 15:40:48 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 15:40:48 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 15:40:48 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 15:40:48 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 15:40:48 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 15:40:48 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 15:40:48 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs
+2026-09-30 15:57:48 | INFO     | app.main | main.py:50 | 👋 Mindawaker 服务关闭
+2026-09-30 15:58:02 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-30 15:58:02 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-30 15:58:02 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-30 15:58:02 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-30 15:58:02 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-30 15:58:02 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-30 15:58:02 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-30 15:58:02 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-30 15:58:02 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs

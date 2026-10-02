@@ -1,0 +1,29 @@
+{
+  "voices": [],
+  "enable_image_consistency": false,
+  "image_consistency_weight": 0.7,
+  "default_language": "zh",
+  "theme2text_mode": "default",
+  "theme2text_template_global": "",
+  "theme2text_templates": {
+    "test": "app/assets/templates/test.j2",
+    "温柔": {
+      "zh": "app/assets/templates/warm.j2",
+      "en": "app/assets/templates/warm_en.j2"
+    },
+    "科普": {
+      "zh": "app/assets/templates/kepu.j2",
+      "en": "app/assets/templates/kepu_en.j2"
+    }
+  },
+  "media_prompt_template_global": "",
+  "media_prompt_templates": {
+    "image_default": {
+      "zh": "app/assets/templates/image_prompt_polish_zh.j2",
+      "en": "app/assets/templates/image_prompt_polish_en.j2"
+    }
+  },
+  "default_text_model_name": "deepseek",
+  "default_audio_model_name": "azure",
+  "default_image_model_name": "jimeng"
+}

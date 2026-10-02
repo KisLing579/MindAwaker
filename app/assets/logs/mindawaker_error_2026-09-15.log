@@ -1,0 +1,134 @@
+2026-09-15 21:28:45 | ERROR    | app.service.task_manager | task_manager.py:244 | Task 5f17560a-6166-4023-9db5-e2e61be7288c: Failed with error: HTTPConnectionPool(host='visual.volcengineapi.com', port=80): Max retries exceeded with url: /?Action=CVProcess&Version=2022-08-31 (Caused by NameResolutionError("HTTPConnection(host='visual.volcengineapi.com', port=80): Failed to resolve 'visual.volcengineapi.com' ([Errno 11001] getaddrinfo failed)"))
+2026-09-15 21:28:45 | ERROR    | app.service.task_manager | task_manager.py:246 | Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: HTTPConnectionPool(host='visual.volcengineapi.com', port=80): Max retries exceeded with url: /?Action=CVProcess&Version=2022-08-31 (Caused by NameResolutionError("HTTPConnection(host='visual.volcengineapi.com', port=80): Failed to resolve 'visual.volcengineapi.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 216, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 322, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 315, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 270, in run_stage
+    response = manager.gen_image(project_id, text=segment["image_prompt"], model_name=config.get("image_model_name", ""),
+                                 size=config.get("size", "1024*1024"), n=1, index=index, apply_result=False)
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2150, in gen_image
+    image_result = self.render_story_shot(
+        project_id=project_id,
+    ...<4 lines>...
+        n=n,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 459, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2209, in gen_image
+    success, image_paths = imageGenerationService.generate(text, pdir, size=size, n=n)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: HTTPConnectionPool(host='visual.volcengineapi.com', port=80): Max retries exceeded with url: /?Action=CVProcess&Version=2022-08-31 (Caused by NameResolutionError("HTTPConnection(host='visual.volcengineapi.com', port=80): Failed to resolve 'visual.volcengineapi.com' ([Errno 11001] getaddrinfo failed)"))
+
+2026-09-15 21:56:21 | ERROR    | app.service.task_manager | task_manager.py:244 | Task 6b7e1431-bb0c-4264-a003-ee1285dec389: Failed with error: b'{"code":50500,"data":null,"message":"Internal Error","request_id":"20260915215557E6C46111E1787462C91E","status":50500,"time_elapsed":"28.018870382s"}'
+2026-09-15 21:56:21 | ERROR    | app.service.task_manager | task_manager.py:246 | Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 209, in common_json_handler
+    res_json = json.loads(res)
+  File "F:\anaconda3\envs\mindawaker\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\anaconda3\envs\mindawaker\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 230, in cv_process
+    res_json = self.common_json_handler("CVProcess", form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 212, in common_json_handler
+    raise Exception(str(e))
+Exception: b'{"code":50500,"data":null,"message":"Internal Error","request_id":"20260915215557E6C46111E1787462C91E","status":50500,"time_elapsed":"28.018870382s"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\16.文生图\Mindawaker\app\service\task_manager.py", line 216, in _wrapped_job
+    result = await job_func(
+             ^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 322, in stage_job
+    raise failure
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 315, in execute
+    return run_stage(project_id, stage, cancel_event, progress_cb, shot_id), None
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\story_review.py", line 270, in run_stage
+    response = manager.gen_image(project_id, text=segment["image_prompt"], model_name=config.get("image_model_name", ""),
+                                 size=config.get("size", "1024*1024"), n=1, index=index, apply_result=False)
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2150, in gen_image
+    image_result = self.render_story_shot(
+        project_id=project_id,
+    ...<4 lines>...
+        n=n,
+    )
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 459, in render_story_shot
+    return self.gen_image(
+           ~~~~~~~~~~~~~~^
+        project_id=project_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        size=size,
+        ^^^^^^^^^^
+    )
+    ^
+  File "E:\16.文生图\Mindawaker\app\service\pipeline_manager.py", line 2209, in gen_image
+    success, image_paths = imageGenerationService.generate(text, pdir, size=size, n=n)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\16.文生图\Mindawaker\app\service\image_service.py", line 81, in generate
+    paths = self.engine.generate_images(prompt=prompt, n=n, size=size, output_dir=output_dir)
+  File "E:\16.文生图\Mindawaker\app\image_engine\volc_engine.py", line 48, in generate_images
+    resp =self.visual_service.cv_process(form)
+  File "F:\anaconda3\envs\mindawaker\Lib\site-packages\volcengine\visual\VisualService.py", line 233, in cv_process
+    raise Exception(str(e))
+Exception: b'{"code":50500,"data":null,"message":"Internal Error","request_id":"20260915215557E6C46111E1787462C91E","status":50500,"time_elapsed":"28.018870382s"}'
+

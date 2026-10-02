@@ -1,0 +1,9 @@
+2026-09-18 19:19:33 | INFO     | app.configs.logging_config | logging_config.py:89 | ==================================================
+2026-09-18 19:19:33 | INFO     | app.configs.logging_config | logging_config.py:90 | Mindawaker 日志系统启动
+2026-09-18 19:19:33 | INFO     | app.configs.logging_config | logging_config.py:91 | 日志级别: INFO
+2026-09-18 19:19:33 | INFO     | app.configs.logging_config | logging_config.py:92 | 日志目录: E:\16.文生图\Mindawaker\app\assets\logs
+2026-09-18 19:19:33 | INFO     | app.configs.logging_config | logging_config.py:93 | ==================================================
+2026-09-18 19:19:33 | INFO     | app.configs.exceptions | exceptions.py:154 | 全局异常处理器已配置
+2026-09-18 19:19:33 | INFO     | app.main | main.py:44 | 🚀 Mindawaker 服务启动中...
+2026-09-18 19:19:33 | INFO     | app.main | main.py:45 | 版本: 0.2.0
+2026-09-18 19:19:33 | INFO     | app.main | main.py:46 | 文档地址: http://127.0.0.1:8000/docs

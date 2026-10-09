@@ -176,6 +176,11 @@ mindawaker/
 | `LOG_LEVEL` | 日志级别 | `INFO` |
 | `LOG_DIR` | 日志目录 | `app/assets/logs` |
 
+## 视频教程
+观看这个分步演示教程，了解如何使用 Novel Engine 创建项目、生成章节并导出故事；使用 Mindawaker 将小说转换为多媒体素材；最后通过 Scene Studio + LTX 2.5 将这些素材制作成完整的视频。
+
+[▶ 观看视频](https://youtu.be/Cjfw1-kFnxc)
+
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
@@ -183,3 +188,4 @@ mindawaker/
 ## 📄 许可证
 
 MIT License
+

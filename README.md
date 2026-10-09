@@ -152,3 +152,9 @@ npm run build
 Provider errors should be checked in the task status and backend logs. A missing credential message names the required backend variable. If browser requests fail before a task starts, check the API proxy, backend port, and CORS configuration.
 
 Structured prompts help carry character and scene information across shots, but visual consistency still depends on model output and review. Media generation requires the selected external services to be reachable. The retired video-retrieval and standalone 3D GUIDED modules are not part of the current application.
+
+## Video Walkthrough
+
+Watch this step-by-step demo to learn how to create a project, generate chapters, and export your story with **Novel Engine**, transform your novel into multimedia assets with **Mindawaker**, and turn those assets into a video using **Scene Studio + LTX 2.5**.
+
+[▶ Watch the video](https://youtu.be/Cjfw1-kFnxc)
